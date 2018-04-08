@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SplashScreen</title>
+    <link rel="stylesheet" href="/style/granular.css">
+  </head>
+  <body>
+    <div id="contain-main">
+    <div class='nav-bar bg-transparent color-white'>
+      <div class="logo font-large">VM</div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div class="login" onclick="beginLogin()">LOGIN</div>
+    </div>
+    <div class="splash-container">
+      <div class="text">
+        <div class="typewriter text-center  ">
+          <h1 id="splash-text" class="run-animation">Host a Video</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="loginUI" class="edges-strong">
+    <form class="form" action="/login" method="POST">
+      <h2>LOGIN</h2>
+      <input name="email" type="text" placeholder="email"></input>
+      <input name="password" type="text" placeholder="password"></input>
+      <input type="submit" placeholder="" value="Login"> </input>
+      <i class="color-white text-right" style="width:100%;margin-right:10px">not a user? signup</i>
+    </form>
+  </div>
+
+    <script>
+    let text = document.querySelector("#splash-text");
+    let splashScreen = document.querySelector("#contain-main");
+    let loginUI = document.querySelector("#loginUI");
+    let beginLogin = () =>{
+      splashScreen.className = "login-animation";
+      setTimeout(function(){
+        splashScreen.className =  "remove" ;
+        loginUI.setAttribute("style", "display:block");
+      },2000)
+    }
+    setTimeout(function(){
+      // text.removeClass("run-animation").addClass("run-animation");
+      text.className = text.className.replace(/run-animation/, "");
+      setTimeout(function(){
+        text.className =  "run-animation";
+        text.innerHTML = "Invite Your Friends"
+      },1000)
+      setTimeout(function(){
+        text.className = text.className.replace(/run-animation/, "");
+      },2500)
+      setTimeout(function(){
+        text.className =  "run-animation";
+        text.innerHTML = "Chat Away ;)"
+      },4000)
+    }, 2500);
+    </script>
+  </body>
+</html>
